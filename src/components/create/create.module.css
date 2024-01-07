@@ -1,0 +1,127 @@
+.container {
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5rem;
+  margin-top: 3.5rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #444;
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.inputWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper > label {
+  margin-right: 15px;
+  width: 33%;
+}
+
+.radioinputwrapper {
+  display: flex;
+  flex-direction: row;
+  width: 77.5%;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.radioOption {
+  padding: 0.5rem;
+}
+
+.radioLabel {
+  padding-left: 0.2rem;
+}
+
+.inputWrapperImage {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapperImage span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: teal;
+  color: #fff;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: 16px;
+  margin: 0.1rem 4.75rem;
+}
+
+.inputWrapperImage span:hover {
+  background-color: #fff;
+  color: teal;
+  border: 1px solid teal;
+}
+
+.imageName {
+  position: absolute;
+  right: 35rem;
+  display: flex;
+  align-self: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.input {
+  padding: 0.5rem;
+  width: 77.5%;
+  border-radius: 8px;
+  border: 1px solid rgb(170, 165, 165);
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid teal;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #cea600;
+  color: #fff;
+  padding: 0.7rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 150ms all;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #fff;
+  color: #cea600;
+  border: 1px solid #cea600;
+}
