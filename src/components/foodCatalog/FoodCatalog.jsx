@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const FoodCatalog = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const [filteredFoods, setFilteredFoods] = useState([]);
   const location = useLocation();
   // e.g. ['', 'foods', 'burger']
@@ -29,45 +31,61 @@ const FoodCatalog = () => {
     fetchFoodType();
   }, [foodEndpoint, token]);
 
-  return (
-    <div className={classes.container}>
-      <div className={classes.wrapper}>
-        {filteredFoods?.length !== 0 && (
-          <h2 className={classes.title}>
-            The best {foodEndpoint} in the region
-          </h2>
-        )}
-        <div className={classes.foods}>
-          {filteredFoods.length !== 0 ? (
-            filteredFoods.map((food) => (
-              <Link
-                to={`/food/${food.id}`}
-                key={food.id}
-                className={classes.food}
-              >
-                <div className={classes.imgContainer}>
-                  <img
-                    src={`${process.env.REACT_APP_SERVER_URL}/image/${food.img}`}
-                    className={classes.foodImg}
-                    alt={food.desc}
-                  />
-                </div>
-                <div className={classes.foodDetails}>
-                  <h4 className={classes.Title}>{food.title}</h4>
-                  <span className={classes.price}>
-                    <span>$ </span>
-                    {food.price}
-                  </span>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <h1 className={classes.noQuantity}>No {foodEndpoint} right now</h1>
-          )}
+  if (!user) {
+    return (
+      <div className={classes.container}>
+        <div className={classes.wrapper}>
+          <div className={classes.foods}>
+            <h1 className={classes.noQuantity}>
+              Login first before checking on the Food.
+            </h1>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classes.container}>
+        <div className={classes.wrapper}>
+          {filteredFoods?.length !== 0 && (
+            <h2 className={classes.title}>
+              The best {foodEndpoint} in the region
+            </h2>
+          )}
+          <div className={classes.foods}>
+            {filteredFoods.length !== 0 ? (
+              filteredFoods.map((food) => (
+                <Link
+                  to={`/food/${food.id}`}
+                  key={food.id}
+                  className={classes.food}
+                >
+                  <div className={classes.imgContainer}>
+                    <img
+                      src={`${process.env.REACT_APP_SERVER_URL}/image/${food.img}`}
+                      className={classes.foodImg}
+                      alt={food.desc}
+                    />
+                  </div>
+                  <div className={classes.foodDetails}>
+                    <h4 className={classes.Title}>{food.title}</h4>
+                    <span className={classes.price}>
+                      <span>$ </span>
+                      {food.price}
+                    </span>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <h1 className={classes.noQuantity}>
+                No {foodEndpoint} right now
+              </h1>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default FoodCatalog;
