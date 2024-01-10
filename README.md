@@ -19,5 +19,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 This project is also hosted online.
 The link is shown below:
+(applying HTTPS certificate for the backend server, requiring unsafe connection at this moment)
 
-> update later
+> https://e-commerce-front-snowy.vercel.app/
