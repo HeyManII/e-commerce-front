@@ -14,7 +14,7 @@ const Cart = () => {
   products.map((product) => (totalPrice += product.price * product.quantity));
 
   const handleRemoveProduct = (id) => {
-    dispatch(removeProduct({ _id: id }));
+    dispatch(removeProduct({ id: id }));
   };
 
   const handleOrder = () => {
@@ -29,9 +29,9 @@ const Cart = () => {
         <div className={classes.left}>
           {products.length > 0 ? (
             products.map((product) => (
-              <div key={products._id} className={classes.product}>
+              <div key={products.id} className={classes.product}>
                 <div
-                  onClick={() => handleRemoveProduct(product._id)}
+                  onClick={() => handleRemoveProduct(product.id)}
                   className={classes.closeButton}
                 >
                   <AiOutlineClose />
